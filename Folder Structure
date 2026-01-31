@@ -1,0 +1,16 @@
+##Folder Structure
+ASR-Model-Comparison/
+│
+├── data/
+│   └── sample_audio.wav
+│
+├── scripts/
+│   ├── whisper_test.py
+│   ├── faster_whisper_test.py
+│   └── wav2vec2_test.py
+│
+├── results/
+│   └── metrics.txt
+│
+├── requirements.txt
+└── README.md
