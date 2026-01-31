@@ -1,0 +1,27 @@
+## PYTHON CODE
+
+# Whisper:
+import whisper
+model = whisper.load_model("base")
+result = model.transcribe("sample.wav")
+print(result["text"])
+
+#Faster-Whisper:
+from faster_whisper import WhisperModel
+model = WhisperModel("base")
+segments, _ = model.transcribe("sample.wav")
+for s in segments:
+    print(s.text)
+
+# Wav2Vec2:
+from transformers import Wav2Vec2ForCTC, Wav2Vec2Processor
+import torch, librosa
+
+processor = Wav2Vec2Processor.from_pretrained("facebook/wav2vec2-base-960h")
+model = Wav2Vec2ForCTC.from_pretrained("facebook/wav2vec2-base-960h")
+
+audio, sr = librosa.load("sample.wav", sr=16000)
+inputs = processor(audio, return_tensors="pt", sampling_rate=sr)
+logits = model(inputs.input_values).logits
+predicted_ids = torch.argmax(logits, dim=-1)
+print(processor.decode(predicted_ids[0]))
