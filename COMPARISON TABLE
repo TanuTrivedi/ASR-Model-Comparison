@@ -1,0 +1,7 @@
+##COMPARISON TABLE
+
+| Model          | Avg WER (%) | Inference Time | Memory Usage | Deployment Ease | Noisy Audio Suitability |
+| -------------- | ----------- | -------------- | ------------ | --------------- | ----------------------- |
+| Whisper        | 11.5        | Slow           | High         | Easy            | Excellent               |
+| Faster-Whisper | 12.0        | Fast           | Medium       | Easy            | Very Good               |
+| Wav2Vec2       | 18.5        | Fast           | Low          | Medium          | Average                 |
